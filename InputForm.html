@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Basic Input Type</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header class="HeaderContainer">
+            <h1>HTML 5 Form Input Field</h1>
+        </header>
+        <form>
+        <div>
+            <label for="text">Input Type for Name</label>
+            <input type="text" id="text" name="text">
+            <error-output class="text-error" for="text"></error-output>
+            </div>
+            <div>
+                <label for="password">Input Type for Password</label>
+                <input type="password" id="password" name="password">
+                <error-output class="text-pwd" for="pwd"></error-output>  
+            </div>
+            <div>
+                <label for="email">Input Type for Email</label>
+                <input type="email" id="email" name="email">
+                <error-output class="text-email" for="text"></error-output>  
+            </div>
+            <div>
+                <label for="url">Input Type for Url</label>
+                <input type="url" id="url" name="url">
+                <error-output class="text-url" for="text"></error-output>  
+            </div>
+            <div>
+                <label for="number">Input Type for Number</label>
+                <input type="number" id="number" name="number">
+                <error-output class="text-number" for="text"></error-output>  
+            </div>
+            <div>
+                <label for="tel">Tel Input Type</label>
+                <input type="tel" id="tel" name="tel">
+                <error-output class="text-error" for="text"></error-output>  
+            </div>
+            <div>
+                <label for="search"> Search Input Type</label>
+                <input type="search" id="search" name="search">
+                <error-output class="text-error" for="text"></error-output>  
+            </div>
+            <div class="nativeDateTimePicker">
+                <label for="party">Choose Date and Time</label>
+                <input type="datetime-local" id="party" name="bday">
+                <error-output class="text-error" for="text"></error-output>  
+            </div>
+            <div>
+                <label for="salary">Choose Your Salary</label>
+                <input type="range" id="salary" name="salary" min="30000" max="50000" step="100" value="100000">
+                <output class="salary-output"></output>
+            </div>
+            <div>
+                <button>Submit</button>
+            </div>
+            </form>
+            <script>
+                const text=document.querySelector('#text');
+                const textError=document.querySelector('.text-error');
+                text.addEventListener('input',function(){
+                let nameRegex=RegExp('^[A-Z]{1}[a-z]{3,20}$')
+                if(nameRegex.test(text.value))
+                textError.textContent="";
+                else
+                textError.textContent="Name is incorrect";
+            })
+            const email=document.querySelector('#email');
+                const emailError=document.querySelector('.text-email');
+                email.addEventListener('email',function(){
+                let EmailRegex=RegExp('^[A-Za-z]{4,}[0-9]{2,}[@]{1,}$')
+                if(EmailRegex.test(email.value))
+                emailError.texContent="";
+                else
+                emailError.texContent="Email is incorrect";
+            })
+
+            const phone=document.querySelector('#number');
+                const phoneError=document.querySelector('.text-number');
+                email.addEventListener('number',function(){
+                let PhoneRegex=RegExp('^[91]{2}[" "]{1}[0-9]{10}$')
+                if(PhoneRegex.test(phone.value))
+                phoneError.texContent="";
+                else
+                phoneError.texContent="Email is incorrect";
+            })
+            const pass=document.querySelector('#password');
+                const passError=document.querySelector('.text-pwd');
+                pass.addEventListener('password',function(){
+                let passRegex=RegExp('^[A-Z]{1}[a-z]{2,}[0-9]{1,}$')
+                if(passRegex.test(pass.value))
+                passError.texContent="";
+                else
+                passError.texContent="Password is incorrect";
+            })
+                const salary=document.querySelector('#salary');
+                const output=document.querySelector('.salary-output');
+                salary.addEventListener('input',function(){
+                    output.textContent=salary.value;
+                })
+            </script>
+            <style>
+          
+            </style>
+            </body>
+            </html>
